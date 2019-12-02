@@ -7,4 +7,9 @@ describe("Test Tools Panel", () => {
   test("Render", () => {
     render(<ToolsPanel />);
   });
+
+  test("Contains exit button", () => {
+    const toolsPanel = render(<ToolsPanel />);
+    expect(toolsPanel.getByTestId("exit-button")).toBeVisible();
+  });
 });
