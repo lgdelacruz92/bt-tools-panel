@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import BtToolsPanel from "bt-tools-panel";
+import BtToolsPanel from "bttoolspanel-bloom";
 
 function App() {
   return <div className="App"></div>;

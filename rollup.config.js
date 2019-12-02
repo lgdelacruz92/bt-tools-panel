@@ -2,7 +2,7 @@ import babel from "rollup-plugin-babel";
 
 export default [
   {
-    input: "src/ToolsPanel/ToolsPanel.js",
+    input: "src/ToolsPanel/index.js",
     output: {
       name: "bttoolspanel",
       file: "dist/index.js",
