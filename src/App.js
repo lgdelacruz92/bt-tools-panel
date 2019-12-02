@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <button onClick={() => {}}>Click</button>
-      <ToolsPanel>
+      <ToolsPanel onClose={() => {}} open={true}>
         <div>Hello World</div>
       </ToolsPanel>
     </div>
