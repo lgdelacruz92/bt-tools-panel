@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import ToolsPanel from "./ToolsPanel/ToolsPanel";
+import ToolsPanel from "bt-tools-panel";
 
 function App() {
   return (
