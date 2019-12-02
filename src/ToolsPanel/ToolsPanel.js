@@ -3,6 +3,7 @@ import * as MUI from "@material-ui/core";
 import { Clear as Close, DragIndicator } from "@material-ui/icons";
 import Draggable from "react-draggable";
 import PropTypes from "prop-types";
+import clsx from "clsx";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -27,23 +28,29 @@ const useStyles = MUI.makeStyles(theme => {
 
 const ToolsPanel = props => {
   const classes = useStyles();
-  const { onClose } = props;
+  const { onClose, id, className, style, open } = props;
   return (
-    <Draggable cancel="#tools-panel-content">
-      <MUI.Paper className={classes.toolsPanel}>
-        <div className={classes.topControls}>
-          <DragIndicator data-testid="drag-indicator" />
-          <Close
-            data-testid="close-button"
-            className={classes.closeButton}
-            onClick={onClose}
-          />
-        </div>
-        <div>
-          <div id="tools-panel-content">{props.children}</div>
-        </div>
-      </MUI.Paper>
-    </Draggable>
+    <div hidden={!open}>
+      <Draggable cancel="#tools-panel-content">
+        <MUI.Paper
+          id={id}
+          className={clsx(classes.toolsPanel, className)}
+          style={style}
+        >
+          <div className={classes.topControls}>
+            <DragIndicator data-testid="drag-indicator" />
+            <Close
+              data-testid="close-button"
+              className={classes.closeButton}
+              onClick={onClose}
+            />
+          </div>
+          <div>
+            <div id="tools-panel-content">{props.children}</div>
+          </div>
+        </MUI.Paper>
+      </Draggable>
+    </div>
   );
 };
 

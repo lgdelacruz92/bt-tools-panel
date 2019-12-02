@@ -37,4 +37,14 @@ describe("Test Tools Panel", () => {
     fireEvent.click(toolsPanel.getByTestId("close-button"));
     expect(onClose).toBeCalled();
   });
+
+  test("Contains children", () => {
+    const onClose = jest.fn();
+    const toolsPanel = render(
+      <ToolsPanel id="tools-panel" onClose={onClose} open={false}>
+        Hello World
+      </ToolsPanel>
+    );
+    expect(document.getElementById("tools-panel")).not.toBeVisible();
+  });
 });
