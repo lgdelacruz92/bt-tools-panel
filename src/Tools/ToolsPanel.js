@@ -50,25 +50,38 @@ const ToolsPanel = props => {
     panelPosition
   } = props;
   const classes = useStyles();
-  const containerRef = React.useRef();
+  const paperRef = React.useRef();
+
+  const [defaultDrPosition, setDefaultDrPosition] = React.useState({
+    x: 0,
+    y: 0
+  });
 
   React.useEffect(() => {
-    if (validateRef(buttonRef) && validateRef(containerRef)) {
+    if (validateRef(buttonRef) && validateRef(paperRef)) {
       const buttonRect = buttonRef.current.getBoundingClientRect();
-      setPanelPosition(containerRef.current, buttonRect, panelPosition);
+      const panelRect = paperRef.current.getBoundingClientRect();
+      const drPos = setPanelPosition(panelRect, buttonRect, panelPosition);
+      setDefaultDrPosition(drPos);
     }
-  });
+  }, []);
   return (
     <div
-      ref={containerRef}
       className={clsx(classes.container, {
         [classes.hidden]: !open,
         [classes.shown]: open
       })}
     >
-      <Draggable cancel="#tools-panel-content">
+      <Draggable
+        position={defaultDrPosition}
+        onStop={(e, data) => {
+          setDefaultDrPosition({ x: data.x, y: data.y });
+        }}
+        cancel="#tools-panel-content"
+      >
         <MUI.Paper
           id={id}
+          ref={paperRef}
           className={clsx(classes.toolsPanel, className)}
           style={style}
         >
