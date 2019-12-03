@@ -45,6 +45,7 @@
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
+    "bt-tools-panel": "0.1.8",
     "bttoolspanel-bloom": "^0.1.7",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -52,6 +53,7 @@
     "rollup": "^1.27.8",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-paths": "^0.0.4"
+    "rollup-plugin-paths": "^0.0.4",
+    "typescript": "^3.7.2"
   }
 }
