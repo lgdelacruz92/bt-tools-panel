@@ -7,9 +7,7 @@ import * as MUI from "@material-ui/core";
 const useStyles = MUI.makeStyles(theme => {
   return {
     toolButton: {
-      position: "fixed",
-      top: 50,
-      right: 20
+      transform: "translate(500px, 500px)"
     }
   };
 });

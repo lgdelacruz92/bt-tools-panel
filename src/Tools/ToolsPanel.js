@@ -7,6 +7,9 @@ import clsx from "clsx";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
+    container: {
+      transition: "visibility 0s, opacity 0.5s ease-out"
+    },
     toolsPanel: {
       display: "inline-block",
       position: "absolute"
@@ -22,15 +25,28 @@ const useStyles = MUI.makeStyles(theme => {
       "&:hover": {
         cursor: "default"
       }
+    },
+    hidden: {
+      opacity: 0,
+      visibility: "hidden"
+    },
+    shown: {
+      opacity: 1,
+      visibility: "visible"
     }
   };
 });
 
 const ToolsPanel = props => {
-  const classes = useStyles();
   const { onClose, id, className, style, open } = props;
+  const classes = useStyles();
   return (
-    <div hidden={!open}>
+    <div
+      className={clsx(classes.container, {
+        [classes.hidden]: !open,
+        [classes.shown]: open
+      })}
+    >
       <Draggable cancel="#tools-panel-content">
         <MUI.Paper
           id={id}
