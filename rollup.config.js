@@ -4,7 +4,7 @@ export default [
   {
     input: "src/ToolsPanel/index.js",
     output: {
-      name: "bttoolspanel",
+      name: "bt-tools-panel",
       file: "dist/index.js",
       format: "es"
     },
