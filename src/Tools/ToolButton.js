@@ -14,9 +14,10 @@ const useStyles = MUI.makeStyles(theme => {
 });
 
 const ToolButton = props => {
-  const { icon, id, className, style } = props;
+  const { icon, id, className, style, panelPosition } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const buttonRef = React.useRef();
   return (
     <React.Fragment>
       <div id="container">
@@ -25,14 +26,17 @@ const ToolButton = props => {
           style={style}
           onClick={() => setOpen(true)}
           id={id}
+          ref={buttonRef}
         >
           {icon}
         </MUI.Fab>
         <div className={classes.toolsPanel}>
           <ToolsPanel
+            buttonRef={buttonRef}
             id={`${id}-panel`}
             onClose={() => setOpen(false)}
             open={open}
+            panelPosition={panelPosition}
           >
             {props.children}
           </ToolsPanel>
@@ -43,7 +47,8 @@ const ToolButton = props => {
 };
 
 ToolButton.propTypes = {
-  icon: PropTypes.element.isRequired
+  icon: PropTypes.element.isRequired,
+  panelPosition: PropTypes.string.isRequired
 };
 
 export default ToolButton;

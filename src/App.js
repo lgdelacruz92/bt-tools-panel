@@ -16,7 +16,11 @@ function App() {
   const classes = useStyles();
   return (
     <div className="App">
-      <ToolButton className={classes.toolButton} icon={<MUIIcon.AcUnit />}>
+      <ToolButton
+        className={classes.toolButton}
+        icon={<MUIIcon.AcUnit />}
+        panelPosition="left"
+      >
         <div style={{ width: 100, height: 100, background: "red" }}></div>
       </ToolButton>
     </div>

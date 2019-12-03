@@ -4,6 +4,8 @@ import { Clear as Close, DragIndicator } from "@material-ui/icons";
 import Draggable from "react-draggable";
 import PropTypes from "prop-types";
 import clsx from "clsx";
+import { validateRef } from "./utils";
+import { setPanelPosition } from "./helpers";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -38,10 +40,27 @@ const useStyles = MUI.makeStyles(theme => {
 });
 
 const ToolsPanel = props => {
-  const { onClose, id, className, style, open } = props;
+  const {
+    onClose,
+    id,
+    className,
+    style,
+    open,
+    buttonRef,
+    panelPosition
+  } = props;
   const classes = useStyles();
+  const containerRef = React.useRef();
+
+  React.useEffect(() => {
+    if (validateRef(buttonRef) && validateRef(containerRef)) {
+      const buttonRect = buttonRef.current.getBoundingClientRect();
+      setPanelPosition(containerRef.current, buttonRect, panelPosition);
+    }
+  });
   return (
     <div
+      ref={containerRef}
       className={clsx(classes.container, {
         [classes.hidden]: !open,
         [classes.shown]: open
