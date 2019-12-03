@@ -40,7 +40,7 @@ describe("Test Tools Panel", () => {
 
   test("Contains children", () => {
     const onClose = jest.fn();
-    const toolsPanel = render(
+    render(
       <ToolsPanel id="tools-panel" onClose={onClose} open={false}>
         Hello World
       </ToolsPanel>
