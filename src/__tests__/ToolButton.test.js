@@ -20,13 +20,15 @@ describe("Test Tools Panel", () => {
     const toolButtonId = "tool-button";
     const toolButton = renderDefault({
       id: toolButtonId,
-      icon: <MUIIcon.AcUnit data-testid="icon" />
+      icon: <MUIIcon.AcUnit data-testid="icon" />,
+      children: "hello"
     });
     fireEvent.click(toolButton.getByTestId("icon"));
     expect(document.getElementById(`${toolButtonId}-panel`)).toBeVisible();
+    expect(toolButton.getByText("hello")).toBeVisible();
   });
 
   const renderDefault = props => {
-    return render(<ToolButton {...props} />);
+    return render(<ToolButton {...props}>{props.children}</ToolButton>);
   };
 });

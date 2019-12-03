@@ -6,7 +6,7 @@ import * as MUIIcon from "@material-ui/icons";
 function App() {
   return (
     <div className="App">
-      <ToolButton icon={<MUIIcon.AcUnit />} />
+      <ToolButton icon={<MUIIcon.AcUnit />}>Hello World </ToolButton>
     </div>
   );
 }

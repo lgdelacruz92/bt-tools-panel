@@ -11,11 +11,9 @@ const ToolButton = props => {
       <MUI.Fab onClick={() => setOpen(true)} id={id}>
         {icon}
       </MUI.Fab>
-      <ToolsPanel
-        id={`${id}-panel`}
-        onClose={() => setOpen(false)}
-        open={open}
-      />
+      <ToolsPanel id={`${id}-panel`} onClose={() => setOpen(false)} open={open}>
+        {props.children}
+      </ToolsPanel>
     </React.Fragment>
   );
 };
