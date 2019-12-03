@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import ToolsPanel from "../ToolsPanel/ToolsPanel";
+import ToolsPanel from "../Tools/ToolsPanel";
 
 describe("Test Tools Panel", () => {
   test("Render", () => {

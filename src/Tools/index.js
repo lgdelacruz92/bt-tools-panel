@@ -1,2 +1,4 @@
 import ToolsPanel from "./ToolsPanel";
-export default ToolsPanel;
+import ToolButton from "./ToolButton";
+export default ToolButton;
+export { ToolsPanel };
