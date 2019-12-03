@@ -5,7 +5,7 @@ import Draggable from "react-draggable";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { validateRef } from "./utils";
-import { setPanelPosition } from "./helpers";
+import { getPanelPos } from "./helpers";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -61,7 +61,8 @@ const ToolsPanel = props => {
     if (validateRef(buttonRef) && validateRef(paperRef)) {
       const buttonRect = buttonRef.current.getBoundingClientRect();
       const panelRect = paperRef.current.getBoundingClientRect();
-      const drPos = setPanelPosition(panelRect, buttonRect, panelPosition);
+      console.log("Panel position", panelPosition);
+      const drPos = getPanelPos(panelRect, buttonRect, panelPosition);
       setDefaultDrPosition(drPos);
     }
   }, []);
