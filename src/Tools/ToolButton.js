@@ -14,13 +14,16 @@ const useStyles = MUI.makeStyles(theme => {
 });
 
 const ToolButton = props => {
-  const { icon, id, className, style, panelPosition } = props;
+  const { icon, id, className, style, panelPosition, position } = props;
+  if (position !== "absolute" && position !== "fixed") {
+    throw Error("position must be either absolute or fixed");
+  }
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const buttonRef = React.useRef();
   return (
     <React.Fragment>
-      <div id="container">
+      <div style={{ position: position || "fixed" }}>
         <MUI.Fab
           className={className}
           style={style}

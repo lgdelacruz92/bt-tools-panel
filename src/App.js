@@ -20,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <ToolButton
+        position="fixed"
         className={classes.toolButton1}
         icon={<MUIIcon.AcUnit />}
         panelPosition="left"
@@ -30,6 +31,7 @@ function App() {
       </ToolButton>
 
       <ToolButton
+        position="fixed"
         className={classes.toolButton2}
         icon={<MUIIcon.AcUnit />}
         panelPosition="right"
