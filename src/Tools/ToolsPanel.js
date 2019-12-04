@@ -61,11 +61,10 @@ const ToolsPanel = props => {
     if (validateRef(buttonRef) && validateRef(paperRef)) {
       const buttonRect = buttonRef.current.getBoundingClientRect();
       const panelRect = paperRef.current.getBoundingClientRect();
-      console.log("Panel position", panelPosition);
       const drPos = getPanelPos(panelRect, buttonRect, panelPosition);
       setDefaultDrPosition(drPos);
     }
-  }, []);
+  }, [buttonRef, panelPosition]);
   return (
     <div
       className={clsx(classes.container, {

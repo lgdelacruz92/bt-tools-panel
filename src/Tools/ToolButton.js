@@ -19,6 +19,11 @@ const ToolButton = props => {
   if (position !== "absolute" && position !== "fixed") {
     throw Error("position must be either absolute or fixed");
   }
+
+  if (panelPosition !== "left" && panelPosition !== "right") {
+    throw Error("panelPosition must not either left or right");
+  }
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const buttonRef = React.useRef();
