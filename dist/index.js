@@ -153,7 +153,7 @@ var useStyles = makeStyles(function (theme) {
     },
     toolsPanel: {
       display: "inline-block",
-      position: "absolute"
+      position: "fixed"
     },
     topControls: {
       display: "flex",
