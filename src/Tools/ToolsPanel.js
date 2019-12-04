@@ -14,7 +14,7 @@ const useStyles = MUI.makeStyles(theme => {
     },
     toolsPanel: {
       display: "inline-block",
-      position: "absolute"
+      position: "fixed"
     },
     topControls: {
       display: "flex",

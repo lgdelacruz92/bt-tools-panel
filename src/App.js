@@ -7,10 +7,17 @@ import * as MUI from "@material-ui/core";
 const useStyles = MUI.makeStyles(theme => {
   return {
     toolButton1: {
-      transform: "translate(500px, 500px)"
+      top: 50,
+      left: 500,
+      color: "white",
+      background: "blue",
+      "&:hover": {
+        background: "lightcoral"
+      }
     },
     toolButton2: {
-      transform: "translate(500px, 100px)"
+      top: 300,
+      left: 500
     }
   };
 });
@@ -19,6 +26,7 @@ function App() {
   const classes = useStyles();
   return (
     <div className="App">
+      <div style={{ width: 100, height: 3000, background: "lightcoral" }} />
       <ToolButton
         position="fixed"
         className={classes.toolButton1}
