@@ -8,7 +8,8 @@ const useStyles = MUI.makeStyles(theme => {
     toolsPanel: {
       position: "absolute",
       left: 0,
-      top: 0
+      top: 0,
+      zIndex: 1
     }
   };
 });
@@ -23,10 +24,10 @@ const ToolButton = props => {
   const buttonRef = React.useRef();
   return (
     <React.Fragment>
-      <div style={{ position: position || "fixed" }}>
+      <div>
         <MUI.Fab
           className={className}
-          style={style}
+          style={{ ...style, ...{ position: position || "fixed" }, zIndex: 0 }}
           onClick={() => setOpen(true)}
           id={id}
           ref={buttonRef}
