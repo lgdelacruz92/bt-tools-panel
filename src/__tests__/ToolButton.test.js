@@ -6,12 +6,18 @@ import * as MUIIcon from "@material-ui/icons";
 
 describe("Test Tools Panel", () => {
   test("render tool button", () => {
-    renderDefault({ icon: <MUIIcon.AcUnit /> });
+    renderDefault({
+      icon: <MUIIcon.AcUnit />,
+      panelPosition: "left",
+      position: "fixed"
+    });
   });
 
   test("contains icon", () => {
     const toolButton = renderDefault({
-      icon: <MUIIcon.AcUnit data-testid="icon" />
+      icon: <MUIIcon.AcUnit data-testid="icon" />,
+      panelPosition: "left",
+      position: "fixed"
     });
     expect(toolButton.getByTestId("icon")).toBeVisible();
   });
@@ -21,7 +27,9 @@ describe("Test Tools Panel", () => {
     const toolButton = renderDefault({
       id: toolButtonId,
       icon: <MUIIcon.AcUnit data-testid="icon" />,
-      children: "hello"
+      children: "hello",
+      panelPosition: "left",
+      position: "fixed"
     });
     fireEvent.click(toolButton.getByTestId("icon"));
     expect(document.getElementById(`${toolButtonId}-panel`)).toBeVisible();
