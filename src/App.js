@@ -28,7 +28,6 @@ function App() {
     <div className="App">
       <div style={{ width: 100, height: 3000, background: "lightcoral" }} />
       <ToolButton
-        position="fixed"
         className={classes.toolButton1}
         icon={<MUIIcon.AcUnit />}
         panelPosition="left"
@@ -39,7 +38,6 @@ function App() {
       </ToolButton>
 
       <ToolButton
-        position="fixed"
         className={classes.toolButton2}
         icon={<MUIIcon.AcUnit />}
         panelPosition="right"

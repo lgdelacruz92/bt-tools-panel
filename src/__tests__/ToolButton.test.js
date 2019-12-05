@@ -8,16 +8,14 @@ describe("Test Tools Panel", () => {
   test("render tool button", () => {
     renderDefault({
       icon: <MUIIcon.AcUnit />,
-      panelPosition: "left",
-      position: "fixed"
+      panelPosition: "left"
     });
   });
 
   test("contains icon", () => {
     const toolButton = renderDefault({
       icon: <MUIIcon.AcUnit data-testid="icon" />,
-      panelPosition: "left",
-      position: "fixed"
+      panelPosition: "left"
     });
     expect(toolButton.getByTestId("icon")).toBeVisible();
   });
@@ -28,8 +26,7 @@ describe("Test Tools Panel", () => {
       id: toolButtonId,
       icon: <MUIIcon.AcUnit data-testid="icon" />,
       children: "hello",
-      panelPosition: "left",
-      position: "fixed"
+      panelPosition: "left"
     });
     fireEvent.click(toolButton.getByTestId("icon"));
     expect(document.getElementById(`${toolButtonId}-panel`)).toBeVisible();

@@ -15,11 +15,7 @@ const useStyles = MUI.makeStyles(theme => {
 });
 
 const ToolButton = props => {
-  const { icon, id, className, style, panelPosition, position } = props;
-  if (position !== "absolute" && position !== "fixed") {
-    throw Error("position must be either absolute or fixed");
-  }
-
+  const { icon, id, className, style, panelPosition } = props;
   if (panelPosition !== "left" && panelPosition !== "right") {
     throw Error("panelPosition must not either left or right");
   }
@@ -32,7 +28,7 @@ const ToolButton = props => {
       <div>
         <MUI.Fab
           className={className}
-          style={{ ...style, ...{ position: position || "fixed" }, zIndex: 0 }}
+          style={{ ...style, ...{ position: "fixed" }, zIndex: 0 }}
           onClick={() => setOpen(true)}
           id={id}
           ref={buttonRef}
