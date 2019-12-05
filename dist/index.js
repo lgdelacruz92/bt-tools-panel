@@ -257,12 +257,7 @@ var ToolButton = function ToolButton(props) {
       id = props.id,
       className = props.className,
       style = props.style,
-      panelPosition = props.panelPosition,
-      position = props.position;
-
-  if (position !== "absolute" && position !== "fixed") {
-    throw Error("position must be either absolute or fixed");
-  }
+      panelPosition = props.panelPosition;
 
   if (panelPosition !== "left" && panelPosition !== "right") {
     throw Error("panelPosition must not either left or right");
@@ -279,7 +274,7 @@ var ToolButton = function ToolButton(props) {
   return React.createElement(React.Fragment, null, React.createElement("div", null, React.createElement(Fab, {
     className: className,
     style: _objectSpread2({}, style, {}, {
-      position: position || "fixed"
+      position: "fixed"
     }, {
       zIndex: 0
     }),
