@@ -15,7 +15,7 @@ const useStyles = MUI.makeStyles(theme => {
 });
 
 const ToolButton = props => {
-  const { icon, id, className, style, panelPosition } = props;
+  const { icon, id, className, style, panelPosition, openPanel } = props;
   if (panelPosition !== "left" && panelPosition !== "right") {
     throw Error("panelPosition must not either left or right");
   }
@@ -23,6 +23,11 @@ const ToolButton = props => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const buttonRef = React.useRef();
+
+  React.useEffect(() => {
+    if (openPanel) setOpen(openPanel);
+  }, [openPanel]);
+
   return (
     <React.Fragment>
       <div>
